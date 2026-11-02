@@ -1,0 +1,507 @@
+:root {
+  --bg-deep: #130a14;
+  --bg-card: rgba(26, 14, 27, 0.7);
+  --border-rose: rgba(255, 179, 193, 0.22);
+  --border-subtle: rgba(255, 179, 193, 0.1);
+  --rose-primary: #e8849b;
+  --rose-soft: #f4b6c2;
+  --rose-light: #fff0f3;
+  --rose-glow: rgba(232, 132, 155, 0.3);
+  --wine-dark: #220e23;
+  --text-main: #fff5f7;
+  --text-muted: #d4a5b2;
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  padding: 40px 18px;
+}
+
+/* Ambient Romantic Glow */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 50% 15%, rgba(190, 18, 60, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 15% 85%, rgba(136, 8, 37, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(225, 29, 72, 0.08) 0%, transparent 45%);
+}
+
+/* Falling Red Rose Petals */
+.petals-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  background: radial-gradient(circle at 35% 30%, #e11d48 0%, #be123c 45%, #880825 80%, #4a0314 100%);
+  border-radius: 65% 0 65% 65%;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
+  animation: fall linear infinite;
+  box-shadow: inset -1px -1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-25px) translateX(0px) rotate(0deg) rotateY(0deg) scale(0.75);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+    transform: translateY(15vh) translateX(15px) rotate(60deg) rotateY(45deg) scale(0.85);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-15px) rotate(190deg) rotateY(120deg) scale(0.9);
+  }
+  85% {
+    opacity: 0.85;
+    transform: translateY(85vh) translateX(12px) rotate(300deg) rotateY(160deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(105vh) translateX(0px) rotate(380deg) rotateY(180deg) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Main Container (Expanded for 3 Photos) */
+.page-container {
+  width: 100%;
+  max-width: 1040px;
+  position: relative;
+  z-index: 2;
+  margin: auto;
+}
+
+/* Romantic Card */
+.romantic-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-rose);
+  border-radius: 28px;
+  padding: 44px 36px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 
+    0 30px 70px -15px rgba(0, 0, 0, 0.8),
+    0 0 50px -10px var(--rose-glow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.romantic-card:hover {
+  border-color: rgba(255, 179, 193, 0.35);
+  box-shadow: 
+    0 35px 80px -15px rgba(0, 0, 0, 0.85),
+    0 0 60px -5px rgba(232, 132, 155, 0.4);
+}
+
+/* Header */
+.romantic-header {
+  margin-bottom: 34px;
+}
+
+.whisper-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--rose-soft);
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.romantic-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 30%, var(--rose-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+/* Presented By Section */
+.presented-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.presented-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.presenter-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--rose-soft);
+  text-shadow: 0 0 15px var(--rose-glow);
+}
+
+.floral-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--rose-primary);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.star-symbol {
+  color: var(--rose-primary);
+  font-size: 0.95rem;
+  animation: subtleTwinkle 3s infinite ease-in-out;
+}
+
+.leaf.flip {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+@keyframes subtleTwinkle {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Letter Invitation Banner */
+.letter-invitation {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.letter-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(232, 132, 155, 0.18), rgba(217, 101, 130, 0.28));
+  border: 1px solid rgba(255, 179, 193, 0.4);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px var(--rose-glow);
+  transition: var(--transition);
+}
+
+.letter-pill-btn strong {
+  color: var(--rose-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.letter-pill-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(232, 132, 155, 0.3), rgba(217, 101, 130, 0.45));
+  border-color: var(--rose-soft);
+  box-shadow: 0 8px 25px rgba(232, 132, 155, 0.5);
+}
+
+.envelope-icon {
+  font-size: 1.15rem;
+  animation: gentlePulse 2s infinite ease-in-out;
+}
+
+.arrow-right {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.letter-pill-btn:hover .arrow-right {
+  transform: translateX(4px);
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+/* 3-Photo Triptych Grid */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 860px) {
+  .photos-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .romantic-card {
+    padding: 32px 18px;
+  }
+  .romantic-title {
+    font-size: 2.2rem;
+  }
+}
+
+.photo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(15, 8, 16, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 16px;
+  transition: var(--transition);
+}
+
+.photo-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-rose);
+  background: rgba(22, 11, 23, 0.6);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+}
+
+.photo-badge {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose-soft);
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: rgba(10, 5, 11, 0.8);
+  border: 1px solid var(--border-rose);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.photo-item:hover .photo-frame img {
+  transform: scale(1.03);
+}
+
+.zoom-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(19, 10, 20, 0.7);
+  border: 1px solid rgba(255, 179, 193, 0.3);
+  color: var(--rose-soft);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.photo-item:hover .zoom-btn {
+  opacity: 1;
+}
+
+.zoom-btn:hover {
+  background: var(--rose-primary);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Download Buttons */
+.btn-download-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(232, 132, 155, 0.12);
+  border: 1px solid var(--border-rose);
+  color: var(--rose-soft);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.btn-download-sm:hover {
+  background: linear-gradient(135deg, #e8849b, #d96582);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--rose-glow);
+}
+
+.download-all-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.btn-download-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #e8849b, #d96582);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 14px 34px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px var(--rose-glow);
+  transition: var(--transition);
+}
+
+.btn-download-all:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: linear-gradient(135deg, #f294aa, #e37490);
+  box-shadow: 0 12px 35px rgba(232, 132, 155, 0.5);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 5, 11, 0.92);
+  backdrop-filter: blur(14px);
+}
+
+.lightbox-box {
+  position: relative;
+  z-index: 1001;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-box img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid var(--border-rose);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lightbox-close:hover {
+  color: var(--rose-soft);
+}
+
+.lightbox-action {
+  margin-top: 16px;
+}
+
+/* Minimal Footer */
+.romantic-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.romantic-footer p {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+.romantic-footer strong {
+  color: var(--rose-soft);
+  font-weight: 500;
+}
+
+.sub-footer-text {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--rose-soft);
+  opacity: 0.85;
+  font-style: italic;
+  letter-spacing: 1px;
+}

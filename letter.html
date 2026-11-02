@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter for You | Yunn Waddy Lwin</title>
+  <link rel="stylesheet" href="letter.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Great+Vibes&family=Noto+Sans+Myanmar:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient romantic lighting & gentle petals -->
+  <div class="ambient-glow"></div>
+  <div class="petals-canvas" id="petals"></div>
+
+  <div class="letter-page">
+    
+    <!-- Top Bar Navigation -->
+    <header class="top-nav">
+      <a href="index.html" class="nav-back-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Back to Artworks</span>
+      </a>
+      <span class="journey-badge">Good luck in your new journey</span>
+    </header>
+
+    <div class="envelope-scene">
+      <div class="prompt-hint" id="promptHint">
+        <span class="tap-icon">✉️</span>
+        <span class="hint-msg">Tap the wax seal or envelope to open your letter</span>
+      </div>
+
+      <!-- The Interactive 3D Envelope -->
+      <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="envelope" id="envelope">
+          
+          <!-- Flap (top triangular cover) -->
+          <div class="envelope-flap" id="envelopeFlap">
+            <div class="wax-seal" id="waxSeal" title="Tap to open letter">
+              <!-- Handcrafted Debossed Seal Emblem -->
+              <div class="seal-inner-stamp">
+                <svg class="seal-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inside Pocket -->
+          <div class="envelope-pocket"></div>
+
+          <!-- The Hidden Letter Paper (Slides out when opened) -->
+          <div class="letter-paper" id="letterPaper">
+            <div class="paper-texture">
+              <div class="letter-header">
+                <span class="letter-sub">A Farewell Message</span>
+                <h2 class="letter-to">Dear Yunn Waddy Lwin,</h2>
+                <div class="letter-ornament">❧ ✦ ❧</div>
+              </div>
+
+              <div class="letter-body">
+                <p class="myanmar-text">အစကငါ့ညီမကိုဒီလိုဆွဲပေးဖို့ထိတော့ စိတ်ကူးမရှိဘူးရယ် ဒီအတိုင်း Australia ပြောင်းရင် gift တစ်ခုပေးဖို့လောက်ပဲ ဒါပေမဲ့ဟိုရက်က မြန်မာဝတ်စုံလေး ဝတ်လာတာမြင်ရတော့ အကို့မျက်စိထဲလှလို့ ဆွဲပေးလိုက်တာ you deserve it။</p>
+                
+                <p class="english-line">I don't know how you will value it but you are the third girl to receive this kinda art work from me. If you want you can even say you are the second girl cuz the first one is my mother....... Lucky enough to get this kinda of gift from me..</p>
+                
+                <p class="highlight-quote">Treat this as a farewell gift from me.</p>
+                
+                <p class="myanmar-text">ပုံကသုံးပုံဖြစ်နေတာ တူတူပဲရယ် vienna ပိုကြိုက်လား Yunn Waddy Lwin ပိုကြိုက်လား ဘာမှမပါတာပိုကြိုက်လားမသိလို့သုံးခုထည့်ပေးလိုက်တာ။</p>
+                
+                <div class="closing-box">
+                  <p class="farewell-text">ကံမကုန်ရင် ပြန်ဆုံတာပေါ့ 👋</p>
+                  <p class="hope-text">Hope you like this............</p>
+                </div>
+              </div>
+
+              <div class="letter-signature">
+                <span class="sign-label">Presented by</span>
+                <span class="sign-name">Nyi Min Htet</span>
+                <span class="sign-date">03.11.2026</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Actions shown after opening -->
+      <div class="after-open-actions" id="afterActions">
+        <button id="toggleEnvelopeBtn" class="btn-subtle">
+          <span id="toggleText">Close Envelope</span>
+        </button>
+        <a href="index.html" class="btn-view-art">
+          <span>View & Download Artworks →</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="letter-footer">
+      <p>Yunn Waddy Lwin &nbsp;•&nbsp; Presented by Nyi Min Htet</p>
+    </footer>
+
+  </div>
+
+  <script src="letter.js"></script>
+</body>
+</html>
